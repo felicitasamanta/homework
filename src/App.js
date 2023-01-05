@@ -1,13 +1,12 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import Form from './components/form';
-
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import Form from "./components/form";
 
 function App() {
   return (
-    <div >
+    <div>
       <header className="App-header">
-       <Form></Form>
+        <Form></Form>
       </header>
     </div>
   );
