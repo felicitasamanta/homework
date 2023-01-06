@@ -6,14 +6,14 @@ function Form() {
   const [greitis, setGreitis] = useState("");
   const [trukme, setTrukme] = useState("");
   const [result, setResult] = useState("");
-  const [isActive, setIsActive] = useState(false);
 
   const skaiciuotiHandler = () => {
-    setIsActive((current) => !current);
     setResult(((trukme * greitis) / talpa) * 100);
     setTalpa("");
     setGreitis("");
     setTrukme("");
+
+    getAlertStyle(result);
   };
 
   const changeTalpaHandler = (event) => {
@@ -26,17 +26,29 @@ function Form() {
   const changeTrukmeHandler = (event) => {
     setTrukme(event.target.value);
   };
-  function getAlertStyle(value) {
+  const getAlertStyle = (value) => {
     if (value >= 100) {
-      return "alert-danger";
+      return (
+        <div class="alert alert-danger" role="alert">
+          TALPA PERPILDYTA!!!
+        </div>
+      );
     } else if (value >= 90) {
-      return "alert-secondary";
-    } else if (value >= 80) {
-      return "alert-success";
+      return (
+        <div class="alert alert-warning" role="alert">
+          Rezervuaro talpa kritiškai pripildyta!!!
+        </div>
+      );
+    } else if (value >= 50) {
+      return (
+        <div class="alert alert-success" role="alert">
+          Rezervuaro talpa kritiškai pripildyta!!!
+        </div>
+      );
     } else {
       return "";
     }
-  }
+  };
 
   return (
     <div className="card bg-primary bg-opacity-25">
@@ -94,23 +106,15 @@ function Form() {
           </button>
         </form>
       </div>
-      {/* //kaip paslepti div teksta, kol dar nera atspausdinta? */}
+
       <div class={`alert alert-primary d-flex fs-6`}>
-        <p className={isActive ? "" : "hide"}>
+        <p className={result ? "" : "hide"}>
           {" "}
           Rezervuaras bus pripildytas {result}%
         </p>
       </div>
-      
+      <div>{getAlertStyle(result)}</div>
     </div>
   );
 }
 export default Form;
-{
-  /* <div class={`alert ${getAlertStyle(result)} alert-primary d-flex fs-6`}>
-<p className={isActive ? "" : "hide"}>
-  {" "}
-  Rezervuaras bus pripildytas {result}%
-</p>
-</div> */
-}
