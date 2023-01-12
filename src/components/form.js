@@ -2,6 +2,7 @@ import "./style.css";
 import Input from "./input";
 import Progress from "./progress";
 import { useState } from "react";
+import Result from "./result";
 const Form = () => {
   const updateData = (data) => {
     console.log("Duomenys skaičiuojami");
@@ -19,6 +20,10 @@ const Form = () => {
           {" "}
           Rezervuaras bus pripildytas {result}%
         </p> */}
+      </div>
+      <div>
+        {" "}
+        <Result result={result} />
       </div>
 
       <div>

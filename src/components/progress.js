@@ -1,7 +1,7 @@
 import Form from "./form";
-const Progress = () => {
+const Progress = (props) => {
   const progressCss = {
-    width: Form.result + "%",
+    width: props.result + "%",
   };
   return (
     <div className="progress">
