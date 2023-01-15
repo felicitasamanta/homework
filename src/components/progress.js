@@ -1,10 +1,9 @@
-import Form from "./form";
 const Progress = (props) => {
   const progressCss = {
     width: props.result + "%",
   };
   return (
-    <div className="progress">
+    <div className="progress text-center fs-5 mb-3" style={{ height: "30px" }}>
       <div
         className="progress-bar-striped bg-success"
         role="progressbar"
@@ -12,7 +11,9 @@ const Progress = (props) => {
         style={progressCss}
         aria-valuemin="0"
         aria-valuemax="100"
-      ></div>
+      >
+        <p className={props.result ? "" : "hide"}> {props.result}%</p>
+      </div>
     </div>
   );
 };

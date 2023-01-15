@@ -6,12 +6,12 @@ const Input = (props) => {
     trukme: "",
   };
   const [skData, setSkData] = useState(init);
-  const [result, setResult] = useState("");
+  // const [result, setResult] = useState("");
 
   const skaiciuotiHandler = (event) => {
     event.preventDefault();
     props.onUpdateData(skData);
-    setResult(((skData.talpa * skData.greitis) / skData.talpa) * 100);
+    // setResult(((skData.talpa * skData.greitis) / skData.talpa) * 100);
     setSkData({
       talpa: "",
       greitis: "",
